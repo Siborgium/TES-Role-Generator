@@ -6,4 +6,4 @@
 
 Немного скринов:
 
-![](https://github.com/Siborgium/TES-Role-Generator/blob/master/res/screen1ruall.png)
+![](https://github.com/Siborgium/TES-Role-Generator/blob/master/res/screen1all.png)
