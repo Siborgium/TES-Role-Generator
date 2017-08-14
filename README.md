@@ -1,9 +1,5 @@
 # TES Role Generator
-Простой генератор ролей для игр серии The Elder Scrolls.
-Для генерации имени используй [*эту*](http://eso.tamriel.org) ссылку.
+Simple role generator for TES (but last version can be modified for most of roleplay games).
+It still not have name generation, so use your own fantasy. Or [*this*](http://eso.tamriel.org) link.
 
-В целом, это практически финальная версия. Мне осталось исправить несколько багов, что не займет много времени. Осталось только два бага: редкий краш, и некорректное отображение пунктов при очень частом кликаньи по "Сгенерировать".
-
-Немного скринов:
-
-![](https://github.com/Siborgium/TES-Role-Generator/blob/master/res/screen1all.png)
+It's final version, I will not change anything in future (maybe, I will rewrite with QT, but I'm not sure).
