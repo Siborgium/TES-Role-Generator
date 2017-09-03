@@ -6,10 +6,9 @@ You're free to copy, replace, share, use, modify and do other actions with this 
 
 #define MAX_LOADSTRING 100
 
-// Global Variables:
-HINSTANCE hInst;                                // current instance
-WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
-WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
+HINSTANCE hInst;                 
+WCHAR szTitle[MAX_LOADSTRING];          
+WCHAR szWindowClass[MAX_LOADSTRING];           
 HWND hWnd, genb, left, right;
 PAINTSTRUCT ps;
 HDC hdc;
@@ -18,8 +17,6 @@ HFONT hFont;
 BOOL BOOLIsOnPress;
 
 #include"Function.h"
-
-// Forward declarations of functions included in this code module:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -32,24 +29,20 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    // TODO: Place code here.
 	hFont = CreateDefaultFont(-14, loadfontname("tech\\font").c_str());
-	religion = new std::vector<std::string>(50);//массив религий
-	pattern = new std::vector<std::string>(20);//массив мировоззрений
-	weapon = new std::vector<std::string>(20);//массив с оружием
-	legacy = new std::vector<std::string>(50);//массив с происхождениями
-	interfacev = new std::vector<std::string>(10);//массив с интерфейсом
+	religion = new std::vector<std::string>(50);
+	pattern = new std::vector<std::string>(20);
+	weapon = new std::vector<std::string>(20);
+	legacy = new std::vector<std::string>(50);
+	interfacev = new std::vector<std::string>(10);
 	database = new std::vector<hero>();
 
-    // Initialize global strings
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_TESROLEGENERATOR, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
-    // Perform application initialization:
     if (!InitInstance (hInstance, nCmdShow)) { return FALSE; }
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_TESROLEGENERATOR));
     MSG msg;
-    // Main message loop:
     while (GetMessage(&msg, nullptr, 0, 0))  { if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) { TranslateMessage(&msg); DispatchMessage(&msg); } }
     return (int) msg.wParam;
 }
@@ -75,7 +68,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance){
 }
 
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow){
-   hInst = hInstance; // Store instance handle in our global variable
+   hInst = hInstance;
    char* TRG = "TES Role Generator";
       hWnd = CreateWindowW(szWindowClass, (LPCWSTR)TRG, WS_OVERLAPPED | WS_MINIMIZE | WS_VISIBLE | WS_MINIMIZEBOX | WS_SYSMENU,
       CW_USEDEFAULT,0, 580, 400, nullptr, nullptr, hInstance, nullptr);
@@ -91,7 +84,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){
 	case WM_CREATE: {
 		database->reserve(50);
 		initInterface();
-		//database.push_back(hero());
 		genb = CreateWindowA("BUTTON", loadStringFromFile("tech\\button").c_str(), WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_FLAT, 355, 260, 150, 75, hWnd, HMENU(ID_BUTTON_GEN), NULL, NULL); SendMessage(genb, WM_SETFONT, (WPARAM)hFont, (LPARAM)MAKELONG(TRUE, 0));
 		right = CreateWindowW(L"BUTTON", L"←", WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_FLAT, 325, 260, 30, 75, hWnd, HMENU(ID_BUTTON_RIGHT), NULL, NULL); SendMessage(right, WM_SETFONT, (WPARAM)hFont, (LPARAM)MAKELONG(TRUE, 0));
 		left = CreateWindowW(L"BUTTON", L"→", WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_FLAT, 505, 260, 30, 75, hWnd, HMENU(ID_BUTTON_LEFT), NULL, NULL); SendMessage(left, WM_SETFONT, (WPARAM)hFont, (LPARAM)MAKELONG(TRUE, 0));
@@ -135,4 +127,4 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){
 	case WM_DESTROY: PostQuitMessage(0); break;
 	default: { return DefWindowProc(hWnd, message, wParam, lParam); }  }
     return 0;
-} //Для основного окна
+}
