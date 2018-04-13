@@ -1,4 +1,4 @@
-﻿/*Copyright 2016-2017 Siborgium
+﻿/*Copyright 2016-2018 Siborgium
 You're free to copy, replace, share, use, modify and do other actions with this program under rules of GNU GPL*/
 
 #include "stdafx.h"

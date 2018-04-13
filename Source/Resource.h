@@ -1,4 +1,4 @@
-/*Copyright 2016-2017 Siborgium
+/*Copyright 2016-2018 Siborgium
 You're free to copy, replace, share, use, modify and do other action with this program under rules of GNU GPL*/
 #define IDS_APP_TITLE			103
 
